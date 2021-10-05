@@ -4,5 +4,18 @@
     border: none;
     width: 150px;
     height: 50px;
-    margin: 35px 0;
+    margin: 35px 0 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__add-button {
+        background-image: url('../../../images/add-button_mini.svg');
+        width: 282px;
+        margin: 36px 0 0;
+    }
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
 }

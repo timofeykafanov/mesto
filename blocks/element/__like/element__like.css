@@ -4,4 +4,9 @@
     width: 22px;
     height: 19px;
     margin-top: 5px;
+    transition: 0.3s;
+}
+
+.element__like:hover {
+    opacity: 0.5;
 }

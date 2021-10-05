@@ -3,4 +3,6 @@
     border-radius: 10px;
     color: black;
     overflow: hidden;
+    max-width: 282px;
+    margin: auto;
 }
