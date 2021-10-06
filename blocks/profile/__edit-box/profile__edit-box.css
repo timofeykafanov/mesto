@@ -1,0 +1,25 @@
+.profile__edit-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin: 37px 0 0;
+    background-color: black;
+    border: 1px solid white;
+    transition: 0.3s;
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__edit-box {
+        margin: 34px 0 0;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.profile__edit-box:hover {
+    opacity: 0.6;
+}

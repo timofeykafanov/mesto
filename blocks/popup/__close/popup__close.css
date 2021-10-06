@@ -6,7 +6,8 @@
     width: 32px;
     height: 32px;
     border: none;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: contain;
 }
 
 .popup__close:hover {
@@ -15,7 +16,6 @@
 
 @media screen and (max-width: 767px) {
     .popup__close {
-        background-image: url(../../../images/close_mini.svg);
         width: 20px;
         height: 20px;
         top: -36px;

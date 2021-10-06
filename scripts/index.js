@@ -1,13 +1,17 @@
-const editButton = document.querySelector('.profile__edit-button');
+const editButton = document.querySelector('.profile__edit-box');
 const popup = document.querySelector('.popup');
-const popupCloseButton = document.querySelector('.popup__close');
-const form = document.querySelector('.popup__form')
-const nameField = document.querySelector('.popup__input_type_name');
-const postField = document.querySelector('.popup__input_type_post');
+const popupContent = popup.querySelector('.popup__content')
+const popupCloseButton = popupContent.querySelector('.popup__close');
+const form = popupContent.querySelector('.popup__form')
+const nameField = form.querySelector('.popup__input_type_name');
+const postField = form.querySelector('.popup__input_type_post');
 const profileName = document.querySelector('.profile__name');
 const profilePost = document.querySelector('.profile__post');
 
 function openPopup() {
+    nameField.setAttribute('value', profileName.textContent);
+    postField.setAttribute('value', profilePost.textContent);
+
     popup.classList.add('popup_isOpen');
 }
 

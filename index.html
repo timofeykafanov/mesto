@@ -19,7 +19,9 @@
                 <div class="profile__info">
                     <div class="profile__row">
                         <p class="profile__name">Жак-Ив Кусто</p>
-                        <button class="profile__edit-button"></button>
+                        <button class="profile__edit-box" type="button">
+                            <div class="profile__edit-button"></div>
+                        </button>
                     </div>
                     <p class="profile__post">Исследователь океана</p>
                 </div>
@@ -32,42 +34,42 @@
                 <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                 <div class="element__description">
                     <h3 class="element__title">Карачаевск</h3>
-                    <div class="element__like element__like_active"></div>
+                    <button class="element__like element__like_active" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="./images/elbrus.png" alt="Гора Эльбрус">
                 <div class="element__description">
                     <h3 class="element__title">Гора Эльбрус</h3>
-                    <div class="element__like"></div>
+                    <button class="element__like" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="./images/dombai.png" alt="Домбай">
                 <div class="element__description">
                     <h3 class="element__title">Домбай</h3>
-                    <div class="element__like"></div>
+                    <button class="element__like" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="./images/baikal.jpg" alt="Байкал">
                 <div class="element__description">
                     <h3 class="element__title">Байкал</h3>
-                    <div class="element__like"></div>
+                    <button class="element__like" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="./images/kamchatka.jpg" alt="Камчатка">
                 <div class="element__description">
                     <h3 class="element__title">Камчатка</h3>
-                    <div class="element__like element__like_active"></div>
+                    <button class="element__like element__like_active" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="./images/altai.jpg" alt="Алтай">
                 <div class="element__description">
                     <h3 class="element__title">Алтай</h3>
-                    <div class="element__like"></div>
+                    <button class="element__like" type="button"></button>
                 </div>
             </div>
         </section>
@@ -81,9 +83,9 @@
         <div class="popup__content">
             <button class="popup__close"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form class="popup__form">
-                <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто">
-                <input type="text" class="popup__input popup__input_type_post" value="Исследователь океана">
+            <form class="popup__form" name="person">
+                <input type="text" class="popup__input popup__input_type_name" name="name">
+                <input type="text" class="popup__input popup__input_type_post" name="post">
                 <button class="popup__button">Сохранить</button>
             </form>
         </div>
