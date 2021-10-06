@@ -1,8 +1,11 @@
 .profile__edit-button {
     background-image: url('../../../images/edit-button.svg');
     background-size: cover;
+    background-color: black;
     width: 10px;
     height: 10px;
+    border: none;
+    padding: 0;
 }
 
 @media screen and (max-width: 767px) {
