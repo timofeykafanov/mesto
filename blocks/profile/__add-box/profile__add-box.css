@@ -1,0 +1,24 @@
+.profile__add-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    padding: 0;
+    width: 150px;
+    height: 50px;
+    margin: 35px 0 0;
+    border: 2px solid white;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__add-box {
+        margin: 36px 0 0;
+        width: 282px;
+    }
+}
+
+.profile__add-box:hover {
+    opacity: 0.6;
+}
