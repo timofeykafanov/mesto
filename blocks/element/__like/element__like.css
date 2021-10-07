@@ -6,6 +6,7 @@
     margin-top: 5px;
     transition: 0.3s;
     border: none;
+    padding: 0;
 }
 
 .element__like:hover {
