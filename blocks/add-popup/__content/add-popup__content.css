@@ -1,4 +1,4 @@
-.popup__content {
+.add-popup__content {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .popup__content {
+    .add-popup__content {
         width: 282px;
         min-height: 322px;
         padding: 25px 22px;
