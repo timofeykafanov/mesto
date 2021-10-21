@@ -32,8 +32,6 @@ const figureImage = figureContent.querySelector('.figure__image');
 const figureCaption = figureContent.querySelector('.figure__caption');
 const figureClose = figureContent.querySelector('.figure__close');
 
-initialCards.forEach(appendCard);
-
 function closeFigure(event) {
     if (event.target.classList.contains('figure') || event.target.classList.contains('figure__close')) {
         figure.classList.remove('figure_opened');
@@ -73,26 +71,57 @@ function appendCard(item) {
     elementList.prepend(element);
 }
 
+initialCards.forEach(appendCard);
+
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-const editPopup = document.querySelector('.edit-popup');
-const addPopup = document.querySelector('.add-popup');
-const editPopupContent = editPopup.querySelector('.edit-popup__content');
-const addPopupContent = addPopup.querySelector('.add-popup__content');
-const editPopupCloseButton = editPopupContent.querySelector('.edit-popup__close');
-const addPopupCloseButton = addPopupContent.querySelector('.add-popup__close');
-const editForm = editPopupContent.querySelector('.edit-popup__form');
-const addForm = addPopupContent.querySelector('.add-popup__form');
-const nameField = editForm.querySelector('.edit-popup__input_type_name');
-const postField = editForm.querySelector('.edit-popup__input_type_post');
-const placeField = addForm.querySelector('.add-popup__input_type_name');
-const linkField = addForm.querySelector('.add-popup__input_type_post');
+const editPopup = document.querySelector('.popup_type_edit');
+const addPopup = document.querySelector('.popup_type_add');
+const editPopupContent = editPopup.querySelector('.popup__content_type_edit');
+const addPopupContent = addPopup.querySelector('.popup__content_type_add');
+const editForm = editPopup.querySelector('.popup__form_type_edit');
+const addForm = addPopup.querySelector('.popup__form_type_add');
+const nameField = editForm.querySelector('.popup__input_type_name');
+const postField = editForm.querySelector('.popup__input_type_post');
+const placeField = addForm.querySelector('.popup__input_type_place');
+const linkField = addForm.querySelector('.popup__input_type_link');
 const profileName = document.querySelector('.profile__name');
 const profilePost = document.querySelector('.profile__post');
 const placeName = document.querySelector('.element__title');
 const imageLink = document.querySelector('.element__image');
 
-addForm.addEventListener('submit', addCard)
+function openEditPopup() {
+    nameField.setAttribute('value', profileName.textContent);
+    postField.setAttribute('value', profilePost.textContent);
+
+    editPopup.classList.add('popup_opened');
+}
+
+function closeEditPopup() {
+    editPopup.classList.remove('popup_opened');
+}
+
+function openAddPopup() {
+    addPopup.classList.add('popup_opened');
+}
+
+function closeAddPopup() {
+    addPopup.classList.remove('popup_opened');
+}
+
+
+editButton.addEventListener('click', openEditPopup);
+
+addButton.addEventListener('click', openAddPopup);
+
+function submitEditForm(event) {
+    event.preventDefault()
+
+    profileName.textContent = nameField.value;
+    profilePost.textContent = postField.value;
+
+    closeEditPopup();
+}
 
 function addCard(event) {
     event.preventDefault();
@@ -109,48 +138,14 @@ function addCard(event) {
     closeAddPopup();
 }
 
-function openEditPopup() {
-    nameField.setAttribute('value', profileName.textContent);
-    postField.setAttribute('value', profilePost.textContent);
-
-    editPopup.classList.add('edit-popup_opened');
-}
-
-function closeEditPopup() {
-    editPopup.classList.remove('edit-popup_opened');
-}
-
-function openAddPopup() {
-    addPopup.classList.add('add-popup_opened');
-}
-
-function closeAddPopup() {
-    addPopup.classList.remove('add-popup_opened');
-}
-
-editButton.addEventListener('click', openEditPopup);
-
-editPopupCloseButton.addEventListener('click', closeEditPopup);
-
-addButton.addEventListener('click', openAddPopup);
-
-addPopupCloseButton.addEventListener('click', closeAddPopup)
-
-function submitEditForm(event) {
-    event.preventDefault()
-
-    profileName.textContent = nameField.value;
-    profilePost.textContent = postField.value;
-
-    closeEditPopup();
-}
-
 editForm.addEventListener('submit', submitEditForm);
 
+addForm.addEventListener('submit', addCard);
+
 function popupClickHandler(event) {
-    if (event.target.classList.contains('edit-popup')) {
+    if (event.target.classList.contains('popup_type_edit') || event.target.classList.contains('popup__close_type_edit')) {
         closeEditPopup();
-    } else if (event.target.classList.contains('add-popup')) {
+    } else if (event.target.classList.contains('popup_type_add') || event.target.classList.contains('popup__close_type_add')) {
         closeAddPopup();
     }
 }

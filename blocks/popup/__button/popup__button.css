@@ -1,4 +1,4 @@
-.add-popup__button {
+.popup__button {
     color: white;
     border: none;
     border-radius: 2px;
@@ -10,12 +10,12 @@
     padding: 0;
 }
 
-.add-popup__button:hover {
+.popup__button:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 767px) {
-    .add-popup__button {
+    .popup__button {
         width: 238px;
         min-height: 46px;
         font-size: 14px;

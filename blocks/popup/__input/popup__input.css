@@ -1,4 +1,4 @@
-.edit-popup__input {
+.popup__input {
     width: 358px;
     border: none;
     font-size: 14px;
@@ -8,16 +8,16 @@
     margin-bottom: 30px;
 }
 
-.edit-popup__input:last-of-type {
+.popup__input:last-of-type {
     margin-bottom: 48px;
 }
 
 @media screen and (max-width: 767px) {
-    .edit-popup__input {
+    .popup__input {
         width: 238px;
     }
 
-    .edit-popup__input:last-of-type {
+    .popup__input:last-of-type {
         margin-bottom: 45px;
     }
 }

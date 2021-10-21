@@ -36,26 +36,26 @@
         <p class="footer__copyright">© 2021 Тимофей Кафанов</p>
     </footer>
 
-    <div class="edit-popup">
-        <div class="edit-popup__content">
-            <button class="edit-popup__close" type="button"></button>
-            <h3 class="edit-popup__title">Редактировать профиль</h3>
-            <form class="edit-popup__form" name="person">
-                <input type="text" class="edit-popup__input edit-popup__input_type_name" name="name">
-                <input type="text" class="edit-popup__input edit-popup__input_type_post" name="post">
-                <button class="edit-popup__button">Сохранить</button>
+    <div class="popup popup_type_edit">
+        <div class="popup__content popup__content_type_edit">
+            <button class="popup__close popup__close_type_edit" type="button"></button>
+            <h3 class="popup__title popup__title_type_edit">Редактировать профиль</h3>
+            <form class="popup__form popup__form_type_edit" name="person">
+                <input type="text" class="popup__input popup__input_type_name" name="name">
+                <input type="text" class="popup__input popup__input_type_post" name="post">
+                <button class="popup__button">Сохранить</button>
             </form>
         </div>
     </div>
 
-    <div class="add-popup">
-        <div class="add-popup__content">
-            <button class="add-popup__close" type="button"></button>
-            <h3 class="add-popup__title">Новое место</h3>
-            <form class="add-popup__form" name="person">
-                <input type="text" class="add-popup__input add-popup__input_type_name" name="name" placeholder="Название">
-                <input type="text" class="add-popup__input add-popup__input_type_post" name="post" placeholder="Ссылка на картинку">
-                <button class="add-popup__button">Создать</button>
+    <div class="popup popup_type_add">
+        <div class="popup__content popup__content_type_add">
+            <button class="popup__close popup__close_type_add" type="button"></button>
+            <h3 class="popup__title popup__title_type_add">Новое место</h3>
+            <form class="popup__form popup__form_type_add" name="person">
+                <input type="text" class="popup__input popup__input_type_place" name="name" placeholder="Название">
+                <input type="text" class="popup__input popup__input_type_link" name="post" placeholder="Ссылка на картинку">
+                <button class="popup__button">Создать</button>
             </form>
         </div>
     </div>
