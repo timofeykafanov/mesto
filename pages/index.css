@@ -40,6 +40,7 @@
 
 @import url(../blocks/figure/figure.css);
 @import url(../blocks/figure/_opened/figure__opened.css);
+@import url(../blocks/figure/__box/figure__box.css);
 @import url(../blocks/figure/__content/figure__content.css);
 @import url(../blocks/figure/__image/figure__image.css);
 @import url(../blocks/figure/__figcaption/figure__caption.css);

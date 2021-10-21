@@ -57,10 +57,10 @@ function createCard(item) {
         if (event.target.classList.contains('element__image')) {
             figure.classList.add('figure_opened');
         }
-        figureImage.setAttribute('src', item.link);
+        figureImage.src = item.link;
+        figureImage.alt = item.name;
         figureCaption.textContent = item.name;
         figure.addEventListener('click', closeFigure);
-        figureClose.addEventListener('click', closeFigure);
     })
 
     return element;
