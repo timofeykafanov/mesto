@@ -1,0 +1,14 @@
+.element__button {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(../../../images/delete.svg);
+    padding: 0;
+    border: none;
+    width: 18px;
+    height: 19px;
+    margin: 20px 20px 0 244px;
+    transition: 0.3s;
+}
+
+.element__button:hover {
+    opacity: 0.6;
+}

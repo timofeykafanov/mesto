@@ -28,48 +28,7 @@
         </section>
 
         <section class="elements">
-            <template class="element">
-                <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-                <div class="element__description">
-                    <h3 class="element__title">Карачаевск</h3>
-                    <button class="element__like element__like_active" type="button"></button>
-                </div>
-            </template>
-            <template class="element">
-                <img class="element__image" src="./images/elbrus.png" alt="Гора Эльбрус">
-                <div class="element__description">
-                    <h3 class="element__title">Гора Эльбрус</h3>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </template>
-            <template class="element">
-                <img class="element__image" src="./images/dombai.png" alt="Домбай">
-                <div class="element__description">
-                    <h3 class="element__title">Домбай</h3>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </template>
-            <template class="element">
-                <img class="element__image" src="./images/baikal.jpg" alt="Байкал">
-                <div class="element__description">
-                    <h3 class="element__title">Байкал</h3>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </template>
-            <template class="element">
-                <img class="element__image" src="./images/kamchatka.jpg" alt="Камчатка">
-                <div class="element__description">
-                    <h3 class="element__title">Камчатка</h3>
-                    <button class="element__like element__like_active" type="button"></button>
-                </div>
-            </template>
-            <template class="element">
-                <img class="element__image" src="./images/altai.jpg" alt="Алтай">
-                <div class="element__description">
-                    <h3 class="element__title">Алтай</h3>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </template>
+            
         </section>
     </main>
 
@@ -100,6 +59,27 @@
             </form>
         </div>
     </div>
+
+    <template class="template">
+        <div class="element">
+            <div class="element__image">
+                <button class="element__button" type="button"></button>
+            </div>
+            <div class="element__description">
+                <h3 class="element__title"></h3>
+                <button class="element__like" type="button"></button>
+            </div>
+        </div>
+    </template>
+
+    <div class="figure">
+        <figure class="figure__content">
+            <img class="figure__image">
+            <figcaption class="figure__caption"></figcaption>
+            <button class="figure__close" type="button"></button>
+        </figure>
+    </div>
+
     <script src="./scripts/index.js"></script>
 </body>
 </html>
