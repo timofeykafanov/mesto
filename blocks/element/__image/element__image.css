@@ -2,4 +2,9 @@
     background-size: cover;
     width: 282px;
     height: 282px;
+    transition: 0.3s;
+}
+
+.element__image:hover {
+    opacity: 0.8;
 }

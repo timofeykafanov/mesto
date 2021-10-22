@@ -38,7 +38,7 @@
 
     <div class="popup popup_type_edit">
         <div class="popup__content popup__content_type_edit">
-            <button class="popup__close popup__close_type_edit" type="button"></button>
+            <button class="popup__close" type="button"></button>
             <h3 class="popup__title popup__title_type_edit">Редактировать профиль</h3>
             <form class="popup__form popup__form_type_edit" name="person">
                 <input type="text" class="popup__input popup__input_type_name" name="name">
@@ -50,11 +50,11 @@
 
     <div class="popup popup_type_add">
         <div class="popup__content popup__content_type_add">
-            <button class="popup__close popup__close_type_add" type="button"></button>
+            <button class="popup__close" type="button"></button>
             <h3 class="popup__title popup__title_type_add">Новое место</h3>
-            <form class="popup__form popup__form_type_add" name="person">
-                <input type="text" class="popup__input popup__input_type_place" name="name" placeholder="Название">
-                <input type="text" class="popup__input popup__input_type_link" name="post" placeholder="Ссылка на картинку">
+            <form class="popup__form popup__form_type_add" name="card">
+                <input type="text" class="popup__input popup__input_type_place" name="place" placeholder="Название">
+                <input type="text" class="popup__input popup__input_type_link" name="link" placeholder="Ссылка на картинку">
                 <button class="popup__button">Создать</button>
             </form>
         </div>
@@ -63,7 +63,7 @@
     <template class="template">
         <div class="element">
             <div class="element__image">
-                <button class="element__button" type="button"></button>
+                <button class="element__delete" type="button"></button>
             </div>
             <div class="element__description">
                 <h3 class="element__title"></h3>
@@ -72,16 +72,17 @@
         </div>
     </template>
 
-    <div class="figure">
-        <div class="figure__box"> 
-            <figure class="figure__content">
-                <img class="figure__image" src="#" alt="#">
-                <figcaption class="figure__caption"></figcaption>
+    <div class="popup popup_type_figure">
+        <div class="popup__box"> 
+            <figure class="popup__figure">
+                <img class="popup__image" src="#" alt="#">
+                <figcaption class="popup__caption"></figcaption>
             </figure>
-            <button class="figure__close" type="button"></button>
+            <button class="popup__close" type="button"></button>
         </div>
     </div>
 
+    <script src="./scripts/object.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-.element__button {
+.element__delete {
     background-color: rgba(0, 0, 0, 0);
     background-image: url(../../../images/delete.svg);
     padding: 0;
@@ -9,6 +9,6 @@
     transition: 0.3s;
 }
 
-.element__button:hover {
+.element__delete:hover {
     opacity: 0.6;
 }
