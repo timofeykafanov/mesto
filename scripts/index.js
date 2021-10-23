@@ -91,12 +91,10 @@ function setUserInfoValues() {
 
 function closeByOverlayClick(event) {
     if (event.target.classList.contains('popup')) {
-        closePopup(editPopup);
-        closePopup(addPopup);
-        closePopup(figurePopup);
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
     }
-}
-
+} 
 initialCards.forEach(appendCard);
 
 editButton.addEventListener('click', ()=> {
@@ -112,11 +110,9 @@ addForm.addEventListener('submit', addCard);
 popupArray.forEach(function(popup) {
     const closeButton = popup.querySelector('.popup__close');
     closeButton.addEventListener('click', ()=> {
-        closePopup(editPopup);
-        closePopup(addPopup);
-        closePopup(figurePopup);
+        closePopup(popup);
     })
-})
+}) 
 
 editPopup.addEventListener('mouseup', closeByOverlayClick);
 addPopup.addEventListener('mouseup', closeByOverlayClick);
