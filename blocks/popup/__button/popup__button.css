@@ -1,17 +1,15 @@
 .popup__button {
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 2px;
-    background-color: black;
+    border: 1px black solid;
+    background-color: rgba(0, 0, 0, 0);
     width: 358px;
     min-height: 50px;
     font-size: 18px;
     line-height: 1.22;
     padding: 0;
-}
-
-.popup__button:hover {
-    opacity: 0.8;
+    opacity: 0.2;
 }
 
 @media screen and (max-width: 767px) {
