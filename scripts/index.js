@@ -23,16 +23,17 @@ const linkField = addForm.querySelector(config.linkFieldSelector);
 const profileName = document.querySelector(config.profileNameSelector);
 const profilePost = document.querySelector(config.profilePostSelector);
 
-
 const cardList = new CardList(elementList, initialCards, createCard);
-const card = new Card(initialCards, templateElement, openPopup);
+
+const addFormValidator = new FormValidator(addForm);
+const editFormValidator = new FormValidator(editForm);
 
 function createCard(item) {
     const card = new Card(item, templateElement, openPopup);
     return card;
 }
 
-initialCards.forEach((item) => {
+cardList._cards.forEach((item) => {
     cardList.addCard(item);
 })
 
@@ -105,7 +106,7 @@ function addCard(event) {
 
     const inputList = Array.from(addForm.querySelectorAll(config.inputSelector));
     const buttonElement = addForm.querySelector(config.buttonSelector);
-    // toggleButtonState(inputList, buttonElement);
+    // FormValidator.toggleButtonState(inputList, buttonElement);
 
     closePopup(addPopup);
 };
@@ -153,3 +154,6 @@ addPopup.addEventListener('mouseup', closeByOverlayClick);
 figurePopup.addEventListener('mouseup', closeByOverlayClick);
 
 // enableValidation();
+
+addFormValidator.enableValidation();
+editFormValidator.enableValidation();
