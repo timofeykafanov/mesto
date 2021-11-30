@@ -24,7 +24,7 @@ const config = {
     linkFieldSelector: '.popup__input_type_link',
     profileNameSelector: '.profile__name',
     profilePostSelector: '.profile__post',
-    popupOpenedSelector: '.popup__opened',
+    popupOpenedSelector: '.popup_opened',
     closeButtonSelector: '.popup__close',
     popupOpenedClass: 'popup_opened',
     popupClass: 'popup',
