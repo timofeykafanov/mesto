@@ -1,46 +1,51 @@
-import FormValidator from './FormValidator.js';
-import CardList from './CardList.js';
-import Card from './Card.js';
+import FormValidator from './classes/FormValidator.js';
+import CardList from './classes/CardList.js';
+import Card from './classes/Card.js';
 
-const popup = document.querySelectorAll(config.popupSelector);
-const popupArray = Array.from(popup);
-const elementList = document.querySelector(config.elementListSelector);
-const templateElement = document.querySelector(config.templateElementSelector).content;
-const figurePopup = document.querySelector(config.figurePopupSelector);
-const editButton = document.querySelector(config.editButtonSelector);
-const addButton = document.querySelector(config.addButtonSelector);
-const editPopup = document.querySelector(config.editPopupSelector);
-const addPopup = document.querySelector(config.addPopupSelector);
-const editForm = editPopup.querySelector(config.editFormSelector);
-const addForm = addPopup.querySelector(config.addFormSelector);
-const nameField = editForm.querySelector(config.nameFieldSelector);
-const postField = editForm.querySelector(config.postFieldSelector);
-const placeField = addForm.querySelector(config.placeFieldSelector);
-const linkField = addForm.querySelector(config.linkFieldSelector);
-const profileName = document.querySelector(config.profileNameSelector);
-const profilePost = document.querySelector(config.profilePostSelector);
+const popupArray = Array.from(document.querySelectorAll(popupConfig.popupSelector));
+const elementList = document.querySelector(popupConfig.elementListSelector);
+const templateElement = document.querySelector(popupConfig.templateElementSelector).content;
+const editButton = document.querySelector(popupConfig.editButtonSelector);
+const addButton = document.querySelector(popupConfig.addButtonSelector);
+const editPopup = document.querySelector(popupConfig.editPopupSelector);
+const addPopup = document.querySelector(popupConfig.addPopupSelector);
+const editForm = editPopup.querySelector(popupConfig.editFormSelector);
+const addForm = addPopup.querySelector(popupConfig.addFormSelector);
+const nameField = editForm.querySelector(popupConfig.nameFieldSelector);
+const postField = editForm.querySelector(popupConfig.postFieldSelector);
+const placeField = addForm.querySelector(popupConfig.placeFieldSelector);
+const linkField = addForm.querySelector(popupConfig.linkFieldSelector);
+const profileName = document.querySelector(popupConfig.profileNameSelector);
+const profilePost = document.querySelector(popupConfig.profilePostSelector);
+const figurePopup = document.querySelector(popupConfig.figurePopupSelector);
+const figureImage = figurePopup.querySelector(popupConfig.figureImageSelector);
+const figureCaption = figurePopup.querySelector(popupConfig.figureCaptionSelector);
 
 const cardList = new CardList(elementList, initialCards, createCard);
-const addFormValidator = new FormValidator(addForm);
-const editFormValidator = new FormValidator(editForm);
-
-nameField.value = profileName.textContent; 
-postField.value = profilePost.textContent;
+const addFormValidator = new FormValidator(validationConfig, addForm);
+const editFormValidator = new FormValidator(validationConfig, editForm);
 
 function createCard(item) {
-    const card = new Card(item, templateElement, openPopup);
+    const card = new Card(cardConfig, item, templateElement, handlerCardClick);
     return card;
 }
 
 function openPopup(popup) {
-    popup.classList.add(config.popupOpenedClass);
+    popup.classList.add(popupConfig.popupOpenedClass);
     document.addEventListener('keydown', closeByEscapePress);
 };
 
 function closePopup(popup) {
-    popup.classList.remove(config.popupOpenedClass);
+    popup.classList.remove(popupConfig.popupOpenedClass);
     document.removeEventListener('keydown', closeByEscapePress);
 };
+
+function handlerCardClick(item) {
+    figureImage.src = item.link;
+    figureImage.alt = item.name;
+    figureCaption.textContent = item.name;
+    openPopup(figurePopup);
+}
 
 function submitEditForm(event) {
     event.preventDefault()
@@ -73,44 +78,43 @@ function setUserInfoValues() {
     postField.value = profilePost.textContent;
 };
 
-function closeByOverlayClick(event) {
-    if (event.target.classList.contains(config.popupClass)) {
-        const openedPopup = document.querySelector(config.popupOpenedSelector);
-        closePopup(openedPopup);
-    };
-};
-
 function closeByEscapePress(event) {
     if (event.key === 'Escape') {
-        const openedPopup = document.querySelector(config.popupOpenedSelector);
+        const openedPopup = document.querySelector(popupConfig.popupOpenedSelector);
         closePopup(openedPopup);
     };
 };
 
-cardList._cards.forEach((item) => {
+popupArray.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains(popupConfig.popupOpenedClass)) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains(popupConfig.closeButtonClass)) {
+            closePopup(popup)
+        }
+    })
+})
+
+initialCards.forEach((item) => {
     cardList.addCard(item);
 })
 
 editButton.addEventListener('click', ()=> {
-    openPopup(editPopup);
+    editFormValidator.resetValidation();
     setUserInfoValues();
+    editFormValidator.toggleButtonState();
+    openPopup(editPopup);
 });
-addButton.addEventListener('click', ()=> openPopup(addPopup));
+addButton.addEventListener('click', ()=> {
+    addFormValidator.resetValidation();
+    openPopup(addPopup);
+});
+
 
 editForm.addEventListener('submit', submitEditForm);
 
 addForm.addEventListener('submit', addCard);
-
-popupArray.forEach(function(popup) {
-    const closeButton = popup.querySelector(config.closeButtonSelector);
-    closeButton.addEventListener('click', ()=> {
-        closePopup(popup);
-    });
-});
-
-editPopup.addEventListener('mouseup', closeByOverlayClick);
-addPopup.addEventListener('mouseup', closeByOverlayClick);
-figurePopup.addEventListener('mouseup', closeByOverlayClick);
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
