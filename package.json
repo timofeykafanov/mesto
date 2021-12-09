@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "[Ссылка на проект](https://timofeykafanov.github.io/mesto/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timofeykafanov/mesto.git"
+  },
+  "author": "Timofey Kafanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timofeykafanov/mesto/issues"
+  },
+  "homepage": "https://github.com/timofeykafanov/mesto#readme"
+}

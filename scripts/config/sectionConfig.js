@@ -1,0 +1,3 @@
+const sectionConfig = {
+    elementListSelector: '.elements'
+}

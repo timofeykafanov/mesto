@@ -1,9 +1,8 @@
 import FormValidator from './classes/FormValidator.js';
-import CardList from './classes/CardList.js';
+import Section from './classes/Section.js';
 import Card from './classes/Card.js';
 
 const popupArray = Array.from(document.querySelectorAll(popupConfig.popupSelector));
-const elementList = document.querySelector(popupConfig.elementListSelector);
 const templateElement = document.querySelector(popupConfig.templateElementSelector).content;
 const editButton = document.querySelector(popupConfig.editButtonSelector);
 const addButton = document.querySelector(popupConfig.addButtonSelector);
@@ -21,14 +20,19 @@ const figurePopup = document.querySelector(popupConfig.figurePopupSelector);
 const figureImage = figurePopup.querySelector(popupConfig.figureImageSelector);
 const figureCaption = figurePopup.querySelector(popupConfig.figureCaptionSelector);
 
-const cardList = new CardList(elementList, initialCards, createCard);
+const section = new Section({
+    items: initialCards,
+    renderer: (item) => {
+            const card = new Card(cardConfig, item, templateElement, handlerCardClick);
+            const cardElement = card.renderCard();
+            section.addItem(cardElement);
+        }
+    }, sectionConfig);
+
+section.renderItems();
+
 const addFormValidator = new FormValidator(validationConfig, addForm);
 const editFormValidator = new FormValidator(validationConfig, editForm);
-
-function createCard(item) {
-    const card = new Card(cardConfig, item, templateElement, handlerCardClick);
-    return card;
-}
 
 function openPopup(popup) {
     popup.classList.add(popupConfig.popupOpenedClass);
@@ -65,7 +69,9 @@ function addCard(event) {
         name: place,
         link: link
     }
-    cardList.addCard(item);
+    const card = new Card(cardConfig, item, templateElement, handlerCardClick);
+    const cardElement = card.renderCard();
+    section.addItem(cardElement);
     event.target.reset();
 
     addFormValidator.toggleButtonState();
@@ -94,10 +100,6 @@ popupArray.forEach((popup) => {
             closePopup(popup)
         }
     })
-})
-
-initialCards.forEach((item) => {
-    cardList.addCard(item);
 })
 
 editButton.addEventListener('click', ()=> {

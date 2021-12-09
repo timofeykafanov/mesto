@@ -1,6 +1,5 @@
 const popupConfig = {
     popupSelector: '.popup',
-    elementListSelector: '.elements',
     templateElementSelector: '.template',
     figureContentSelector: '.popup__figure',
     editButtonSelector: '.profile__edit-button',
