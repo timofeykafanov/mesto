@@ -1,4 +1,5 @@
 const cardConfig = {
+    templateElementSelector: '.template',
     elementSelector: '.element',
     imageSelector: '.element__image',
     titleSelector: '.element__title',

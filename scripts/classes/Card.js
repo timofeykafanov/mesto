@@ -1,19 +1,20 @@
 class Card {
-    constructor(cardConfig, item, template, handlerCardClick) {
+    constructor(cardConfig, item, handleCardClick) {
         this._item = item;
         this._config = cardConfig;
-        this._element = template.querySelector(this._config.elementSelector).cloneNode(true);
+        this._template = document.querySelector(this._config.templateElementSelector).content;
+        this._element = this._template.querySelector(this._config.elementSelector).cloneNode(true);
         this._image = this._element.querySelector(this._config.imageSelector);
         this._title = this._element.querySelector(this._config.titleSelector);
         this._delete = this._element.querySelector(this._config.deleteSelector);
         this._likeButton = this._element.querySelector(this._config.likeSelector);
-        this._handlerCardClick = handlerCardClick;
+        this._handleCardClick = handleCardClick;
     }
 
     _addListeners() {
         this._image.addEventListener('click', (event) => {
             if (event.target.classList.contains(this._config.imageClass)) {
-                this._handlerCardClick(this._item);
+                this._handleCardClick(this._item);
             }
         });
         this._delete.addEventListener('click', () => this._remove());
