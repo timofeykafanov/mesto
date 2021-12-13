@@ -21,5 +21,6 @@ const popupConfig = {
     popupClass: 'popup',
     figurePopupSelector: '.popup_type_figure',
     figureImageSelector: '.popup__image',
-    figureCaptionSelector: '.popup__caption'
+    figureCaptionSelector: '.popup__caption',
+    formSelector: '.popup__form'
 }

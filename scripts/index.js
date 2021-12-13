@@ -1,7 +1,8 @@
 import FormValidator from './classes/FormValidator.js';
 import Section from './classes/Section.js';
 import Card from './classes/Card.js';
-import Popup from './classes/Popup.js';
+import PopupWithImage from './classes/PopupWithImage.js';
+import PopupWithForm from './classes/PopupWithForm.js';
 
 // const popupArray = Array.from(document.querySelectorAll(popupConfig.popupSelector));
 const templateElement = document.querySelector(popupConfig.templateElementSelector).content;
@@ -11,15 +12,15 @@ const editPopup = document.querySelector(popupConfig.editPopupSelector);
 const addPopup = document.querySelector(popupConfig.addPopupSelector);
 const editForm = editPopup.querySelector(popupConfig.editFormSelector);
 const addForm = addPopup.querySelector(popupConfig.addFormSelector);
-// const nameField = editForm.querySelector(popupConfig.nameFieldSelector);
-// const postField = editForm.querySelector(popupConfig.postFieldSelector);
-// const placeField = addForm.querySelector(popupConfig.placeFieldSelector);
-// const linkField = addForm.querySelector(popupConfig.linkFieldSelector);
+const nameField = editForm.querySelector(popupConfig.nameFieldSelector);
+const postField = editForm.querySelector(popupConfig.postFieldSelector);
+const placeField = addForm.querySelector(popupConfig.placeFieldSelector);
+const linkField = addForm.querySelector(popupConfig.linkFieldSelector);
 // const profileName = document.querySelector(popupConfig.profileNameSelector);
 // const profilePost = document.querySelector(popupConfig.profilePostSelector);
-const figurePopup = document.querySelector(popupConfig.figurePopupSelector);
-const figureImage = figurePopup.querySelector(popupConfig.figureImageSelector);
-const figureCaption = figurePopup.querySelector(popupConfig.figureCaptionSelector);
+// const figurePopup = document.querySelector(popupConfig.figurePopupSelector);
+// const figureImage = figurePopup.querySelector(popupConfig.figureImageSelector);
+// const figureCaption = figurePopup.querySelector(popupConfig.figureCaptionSelector);
 
 const section = new Section({
     items: initialCards,
@@ -34,8 +35,13 @@ section.renderItems();
 
 const addFormValidator = new FormValidator(validationConfig, addForm);
 const editFormValidator = new FormValidator(validationConfig, editForm);
+const popupWithImage = new PopupWithImage(popupConfig);
+const popupWithAddForm = new PopupWithForm(popupConfig);
+const popupWithEditForm = new PopupWithForm(popupConfig);
 
-const popup = new Popup(popupConfig);
+function handleCardClick(item) {
+    popupWithImage.open(item);
+}
 
 // function openPopup(popup) {
 //     popup.classList.add(popupConfig.popupOpenedClass);
@@ -47,20 +53,13 @@ const popup = new Popup(popupConfig);
 //     document.removeEventListener('keydown', closeByEscapePress);
 // };
 
-function handleCardClick(item) {
-    figureImage.src = item.link;
-    figureImage.alt = item.name;
-    figureCaption.textContent = item.name;
-    popup.open(figurePopup);
-}
-
 function submitEditForm(event) {
     event.preventDefault()
 
     profileName.textContent = nameField.value;
     profilePost.textContent = postField.value;
 
-    popup.close(editPopup);
+    popupWithEditForm.close();
 };
 
 function addCard(event) {
@@ -75,11 +74,10 @@ function addCard(event) {
     const card = new Card(cardConfig, item, templateElement, handleCardClick);
     const cardElement = card.renderCard();
     section.addItem(cardElement);
-    event.target.reset();
 
     addFormValidator.toggleButtonState();
 
-    popup.close(addPopup);
+    popupWithAddForm.close();
 };
 
 function setUserInfoValues() {
@@ -87,36 +85,16 @@ function setUserInfoValues() {
     postField.value = profilePost.textContent;
 };
 
-// function closeByEscapePress(event) {
-//     if (event.key === 'Escape') {
-//         const openedPopup = document.querySelector(popupConfig.popupOpenedSelector);
-//         closePopup(openedPopup);
-//     };
-// };
-
-// popupArray.forEach((popup) => {
-//     popup.addEventListener('click', (evt) => {
-//         if (evt.target.classList.contains(popupConfig.popupOpenedClass)) {
-//             closePopup(popup)
-//         }
-//         if (evt.target.classList.contains(popupConfig.closeButtonClass)) {
-//             closePopup(popup)
-//         }
-//     })
-// })
-
 editButton.addEventListener('click', ()=> {
     editFormValidator.resetValidation();
     setUserInfoValues();
     editFormValidator.toggleButtonState();
-    popup.setEventListeners();
-    popup.open(editPopup);
+    popupWithEditForm.open(editPopup);
 });
 
 addButton.addEventListener('click', ()=> {
     addFormValidator.resetValidation();
-    popup.setEventListeners();
-    popup.open(addPopup);
+    popupWithAddForm.open(addPopup);
 });
 
 
