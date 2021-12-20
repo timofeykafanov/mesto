@@ -1,4 +1,4 @@
-const cardConfig = {
+export const cardConfig = {
     templateElementSelector: '.template',
     elementSelector: '.element',
     imageSelector: '.element__image',

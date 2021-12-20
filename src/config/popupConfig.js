@@ -1,4 +1,4 @@
-const popupConfig = {
+export const popupConfig = {
     popupSelector: '.popup',
     templateElementSelector: '.template',
     figureContentSelector: '.popup__figure',

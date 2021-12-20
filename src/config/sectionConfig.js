@@ -1,3 +1,3 @@
-const sectionConfig = {
+export const sectionConfig = {
     elementListSelector: '.elements'
 }

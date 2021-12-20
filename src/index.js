@@ -1,3 +1,12 @@
+import './pages/index.css';
+
+import { initialCards } from './objects/initialCards.js';
+import { cardConfig } from './config/cardConfig.js';
+import { popupConfig } from './config/popupConfig.js';
+import { sectionConfig } from './config/sectionConfig.js';
+import { userConfig } from './config/userConfig.js';
+import { validationConfig } from './config/validationConfig.js';
+
 import FormValidator from './classes/FormValidator.js';
 import Section from './classes/Section.js';
 import Card from './classes/Card.js';
@@ -5,7 +14,6 @@ import PopupWithImage from './classes/PopupWithImage.js';
 import PopupWithForm from './classes/PopupWithForm.js';
 import UserInfo from './classes/UserInfo.js';
 
-const templateElement = document.querySelector(popupConfig.templateElementSelector).content;
 const editButton = document.querySelector(popupConfig.editButtonSelector);
 const addButton = document.querySelector(popupConfig.addButtonSelector);
 const editPopup = document.querySelector(popupConfig.editPopupSelector);
