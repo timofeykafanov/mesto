@@ -1,18 +1,18 @@
-import './pages/index.css';
+import './index.css';
 
-import { initialCards } from './objects/initialCards.js';
-import { cardConfig } from './config/cardConfig.js';
-import { popupConfig } from './config/popupConfig.js';
-import { sectionConfig } from './config/sectionConfig.js';
-import { userConfig } from './config/userConfig.js';
-import { validationConfig } from './config/validationConfig.js';
+import { initialCards } from '../scripts/constants/initialCards.js';
+import { cardConfig } from '../scripts/config/cardConfig.js';
+import { popupConfig } from '../scripts/config/popupConfig.js';
+import { sectionConfig } from '../scripts/config/sectionConfig.js';
+import { userConfig } from '../scripts/config/userConfig.js';
+import { validationConfig } from '../scripts/config/validationConfig.js';
 
-import FormValidator from './classes/FormValidator.js';
-import Section from './classes/Section.js';
-import Card from './classes/Card.js';
-import PopupWithImage from './classes/PopupWithImage.js';
-import PopupWithForm from './classes/PopupWithForm.js';
-import UserInfo from './classes/UserInfo.js';
+import FormValidator from '../scripts/components/FormValidator.js';
+import Section from '../scripts/components/Section.js';
+import Card from '../scripts/components/Card.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import UserInfo from '../scripts/components/UserInfo.js';
 
 const editButton = document.querySelector(popupConfig.editButtonSelector);
 const addButton = document.querySelector(popupConfig.addButtonSelector);
