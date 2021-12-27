@@ -5,12 +5,10 @@ class UserInfo {
     }
 
     getUserInfo() {
-        this._userInfo = {
+        return this._userInfo = {
             name: this._userName.textContent,
             post: this._userPost.textContent
         };
-
-        return this._userInfo;
     }
 
     setUserInfo({name: nameValue, post: postValue}) {

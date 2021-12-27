@@ -4,6 +4,7 @@ import { initialCards } from '../scripts/constants/initialCards.js';
 import { cardConfig } from '../scripts/constants/cardConfig.js';
 import { popupConfig } from '../scripts/constants/popupConfig.js';
 import { validationConfig } from '../scripts/constants/validationConfig.js';
+import { userConfig } from '../scripts/constants/userConfig.js'
 
 import FormValidator from '../scripts/components/FormValidator.js';
 import Section from '../scripts/components/Section.js';
@@ -18,12 +19,8 @@ const editForm = document.querySelector(popupConfig.editFormSelector);
 const addForm = document.querySelector(popupConfig.addFormSelector);
 const nameField = document.querySelector(popupConfig.nameFieldSelector);
 const postField = document.querySelector(popupConfig.postFieldSelector);
-const userNameSelector = '.profile__name';
-const userPostSelector = '.profile__post';
-const editPopupSelector = '.popup_type_edit';
-const addPopupSelector = '.popup_type_add';
-const imagePopupSelector = '.popup_type_figure';
-const elementListSelector = '.elements';
+const userNameSelector = userConfig.userNameSelector;
+const userPostSelector = userConfig.userPostSelector;
 
 const section = new Section({
     items: initialCards,
@@ -31,13 +28,13 @@ const section = new Section({
         const card = new Card(cardConfig, item, handleCardClick);
         section.addItem(card.renderCard());
     }
-}, elementListSelector);
+}, popupConfig.elementListSelector);
 
 const addFormValidator = new FormValidator(validationConfig, addForm);
 const editFormValidator = new FormValidator(validationConfig, editForm);
-const popupWithImage = new PopupWithImage(imagePopupSelector);
-const popupWithAddForm = new PopupWithForm(addPopupSelector, submitAddForm);
-const popupWithEditForm = new PopupWithForm(editPopupSelector, submitEditForm);
+const popupWithImage = new PopupWithImage(popupConfig.imagePopupSelector);
+const popupWithAddForm = new PopupWithForm(popupConfig.addPopupSelector, submitAddForm);
+const popupWithEditForm = new PopupWithForm(popupConfig.editPopupSelector, submitEditForm);
 const userInfo = new UserInfo({userNameSelector, userPostSelector});
 
 function handleCardClick(item) {
@@ -45,7 +42,6 @@ function handleCardClick(item) {
 }
 
 function submitEditForm(inputValues) {
-    popupWithEditForm.setEventListeners();
     userInfo.setUserInfo(inputValues);
     popupWithEditForm.close();
 };
@@ -85,6 +81,10 @@ addButton.addEventListener('click', ()=> {
     addFormValidator.resetValidation();
     popupWithAddForm.open();
 });
+
+popupWithEditForm.setEventListeners();
+popupWithAddForm.setEventListeners();
+popupWithImage.setEventListeners();
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();

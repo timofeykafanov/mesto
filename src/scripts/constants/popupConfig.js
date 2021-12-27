@@ -21,5 +21,7 @@ export const popupConfig = {
     figureImageSelector: '.popup__image',
     figureCaptionSelector: '.popup__caption',
     formSelector: '.popup__form',
-    inputSelector: '.popup__input'
+    inputSelector: '.popup__input',
+    elementListSelector: '.elements',
+    imagePopupSelector: '.popup_type_figure'
 }
