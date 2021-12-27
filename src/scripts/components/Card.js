@@ -6,7 +6,7 @@ class Card {
         this._element = this._template.querySelector(this._config.elementSelector).cloneNode(true);
         this._image = this._element.querySelector(this._config.imageSelector);
         this._title = this._element.querySelector(this._config.titleSelector);
-        this._delete = this._element.querySelector(this._config.deleteSelector);
+        this._button = this._element.querySelector(this._config.deleteSelector);
         this._likeButton = this._element.querySelector(this._config.likeSelector);
         this._handleCardClick = handleCardClick;
     }
@@ -17,7 +17,7 @@ class Card {
                 this._handleCardClick(this._item);
             }
         });
-        this._delete.addEventListener('click', () => this._remove());
+        this._button.addEventListener('click', () => this._remove());
         this._likeButton.addEventListener('click', () => this._like());
     }
 

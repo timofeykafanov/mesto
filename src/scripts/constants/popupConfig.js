@@ -10,6 +10,8 @@ export const popupConfig = {
     addFormSelector: '.popup__form_type_add',
     placeFieldSelector: '.popup__input_type_place',
     linkFieldSelector: '.popup__input_type_link',
+    nameFieldSelector: '.popup__input_type_name',
+    postFieldSelector: '.popup__input_type_post',
     popupOpenedSelector: '.popup_opened',
     closeButtonSelector: '.popup__close',
     closeButtonClass: 'popup__close',
@@ -18,5 +20,6 @@ export const popupConfig = {
     figurePopupSelector: '.popup_type_figure',
     figureImageSelector: '.popup__image',
     figureCaptionSelector: '.popup__caption',
-    formSelector: '.popup__form'
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input'
 }

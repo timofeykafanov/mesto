@@ -1,13 +1,12 @@
 class Section {
-    constructor({ items, renderer }, sectionConfig) {
-        this._config = sectionConfig;
-        this._cardList = document.querySelector(this._config.elementListSelector);
+    constructor({ items, renderer }, elementListSelector) {
+        this._section = document.querySelector(elementListSelector);
         this._items = items;
         this._renderer = renderer;
     }
 
     addItem(item) {
-        this._cardList.prepend(item);
+        this._section.prepend(item);
     }
 
     renderItems() {

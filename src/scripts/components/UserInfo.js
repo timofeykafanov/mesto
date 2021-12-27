@@ -1,20 +1,21 @@
 class UserInfo {
-    constructor(userConfig) {
-        this._config = userConfig;
-        this._nameField = document.querySelector(userConfig.nameFieldSelector);
-        this._postField = document.querySelector(userConfig.postFieldSelector);
-        this._profileName = document.querySelector(userConfig.profileNameSelector);
-        this._profilePost = document.querySelector(userConfig.profilePostSelector);
+    constructor({userNameSelector, userPostSelector}) {
+        this._userName = document.querySelector(userNameSelector);
+        this._userPost = document.querySelector(userPostSelector);
     }
 
     getUserInfo() {
-        this._nameField.value = this._profileName.textContent;
-        this._postField.value = this._profilePost.textContent;
+        this._userInfo = {
+            name: this._userName.textContent,
+            post: this._userPost.textContent
+        };
+
+        return this._userInfo;
     }
 
-    setUserInfo() {
-        this._profileName.textContent = this._nameField.value;
-        this._profilePost.textContent = this._postField.value;
+    setUserInfo({name: nameValue, post: postValue}) {
+        this._userName.textContent = nameValue;
+        this._userPost.textContent = postValue;
     }
 }
 
