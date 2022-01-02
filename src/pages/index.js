@@ -1,4 +1,4 @@
-import './index.css';
+
 
 import { initialCards } from '../scripts/constants/initialCards.js';
 import { cardConfig } from '../scripts/constants/cardConfig.js';

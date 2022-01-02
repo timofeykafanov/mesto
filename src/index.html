@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
     <header class="header">
@@ -63,6 +64,14 @@
         </div>
     </div>
 
+    <div class="popup popup_type_delete popup_opened">
+        <div class="popup__content popup__content_type_delete">
+            <button class="popup__close" type="button"></button>
+            <h3 class="popup__title popup__title_type_delete">Вы уверены?</h3>
+            <button class="popup__button popup__button_active">Да</button>
+        </div>
+    </div>
+
     <template class="template">
         <div class="element">
             <div class="element__image">
@@ -70,7 +79,10 @@
             </div>
             <div class="element__description">
                 <h3 class="element__title"></h3>
-                <button class="element__like" type="button"></button>
+                <div class="element__column">
+                    <button class="element__like" type="button"></button>
+                    <p class="element__counter"></p>
+                </div>
             </div>
         </div>
     </template>
@@ -84,5 +96,6 @@
             <button class="popup__close" type="button"></button>
         </div>
     </div>
+    <script type="module" src="./pages/index.js"></script>
 </body>
 </html>
