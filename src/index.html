@@ -15,7 +15,7 @@
     <main class="content">
         <section class="profile">
             <div class="profile__person">
-                <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Жак-Ив Кусто">
+                <div class="profile__avatar"></div>
                 <div class="profile__info">
                     <div class="profile__row">
                         <p class="profile__name">Жак-Ив Кусто</p>
@@ -64,11 +64,23 @@
         </div>
     </div>
 
-    <div class="popup popup_type_delete popup_opened">
+    <div class="popup popup_type_delete">
         <div class="popup__content popup__content_type_delete">
             <button class="popup__close" type="button"></button>
             <h3 class="popup__title popup__title_type_delete">Вы уверены?</h3>
             <button class="popup__button popup__button_active">Да</button>
+        </div>
+    </div>
+
+    <div class="popup popup_type_avatar">
+        <div class="popup__content popup__content_type_avatar">
+            <button class="popup__close" type="button"></button>
+            <h3 class="popup__title popup__title_type_avatar">Обновить аватар</h3>
+            <form class="popup__form popup__form_type_add" name="card" novalidate>
+                <input type="url" class="popup__input popup__input_type_avatar" id="avatar-input" name="avatar" placeholder="Ссылка на картинку" required>
+                <span class="popup__input-error avatar-input-error"></span>
+                <button class="popup__button">Сохранить</button>
+            </form>
         </div>
     </div>
 
