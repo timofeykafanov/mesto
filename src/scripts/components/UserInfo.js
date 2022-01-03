@@ -1,19 +1,24 @@
 class UserInfo {
-    constructor({userNameSelector, userPostSelector}) {
+    constructor({userNameSelector, userAboutSelector, userAvatarSelector}) {
         this._userName = document.querySelector(userNameSelector);
-        this._userPost = document.querySelector(userPostSelector);
+        this._userAbout = document.querySelector(userAboutSelector);
+        this._userAvatar = document.querySelector(userAvatarSelector);
     }
 
     getUserInfo() {
         return this._userInfo = {
             name: this._userName.textContent,
-            post: this._userPost.textContent
+            about: this._userAbout.textContent
         };
     }
 
-    setUserInfo({name: nameValue, post: postValue}) {
-        this._userName.textContent = nameValue;
-        this._userPost.textContent = postValue;
+    setUserInfo({name, about}) {
+        this._userName.textContent = name;
+        this._userAbout.textContent = about;
+    }
+
+    setUserAvatar(inputValues) {
+        this._userAvatar.style.backgroundImage = `url('${inputValues.avatar}')`;
     }
 }
 

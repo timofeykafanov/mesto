@@ -1,4 +1,5 @@
 export const userConfig = {
     userNameSelector: '.profile__name',
-    userPostSelector: '.profile__post'
+    userAboutSelector: '.profile__about',
+    userAvatarSelector: '.profile__avatar'
 }

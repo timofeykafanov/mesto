@@ -11,7 +11,7 @@ export const popupConfig = {
     placeFieldSelector: '.popup__input_type_place',
     linkFieldSelector: '.popup__input_type_link',
     nameFieldSelector: '.popup__input_type_name',
-    postFieldSelector: '.popup__input_type_post',
+    aboutFieldSelector: '.popup__input_type_about',
     popupOpenedSelector: '.popup_opened',
     closeButtonSelector: '.popup__close',
     closeButtonClass: 'popup__close',
@@ -23,5 +23,9 @@ export const popupConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     elementListSelector: '.elements',
-    imagePopupSelector: '.popup_type_figure'
+    imagePopupSelector: '.popup_type_figure',
+    deletePopupSelector: '.popup_type_delete',
+    avatarPopupSelector: '.popup_type_avatar',
+    avatarButtonSelector: '.profile__avatar',
+    avatarFormSelector: '.popup__form_type_avatar'
 }

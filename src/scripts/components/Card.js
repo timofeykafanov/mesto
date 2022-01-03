@@ -1,5 +1,5 @@
 class Card {
-    constructor(cardConfig, item, handleCardClick) {
+    constructor(cardConfig, item, handleCardClick, openDeletePopup) {
         this._item = item;
         this._config = cardConfig;
         this._template = document.querySelector(this._config.templateElementSelector).content;
@@ -9,6 +9,7 @@ class Card {
         this._button = this._element.querySelector(this._config.deleteSelector);
         this._likeButton = this._element.querySelector(this._config.likeSelector);
         this._handleCardClick = handleCardClick;
+        this._openDeletePopup = openDeletePopup;
     }
 
     _addListeners() {
@@ -17,7 +18,9 @@ class Card {
                 this._handleCardClick(this._item);
             }
         });
-        this._button.addEventListener('click', () => this._remove());
+        this._button.addEventListener('click', () => {
+            this._openDeletePopup();
+        })
         this._likeButton.addEventListener('click', () => this._like());
     }
 
@@ -25,7 +28,7 @@ class Card {
         this._likeButton.classList.toggle(this._config.likeActiveClass);
     }
 
-    _remove() {
+    removeElement() {
         this._element.remove();
     }
 

@@ -18,10 +18,10 @@
                 <div class="profile__avatar"></div>
                 <div class="profile__info">
                     <div class="profile__row">
-                        <p class="profile__name">Жак-Ив Кусто</p>
+                        <p class="profile__name"></p>
                         <button class="profile__edit-button" type="button"></button>
                     </div>
-                    <p class="profile__post">Исследователь океана</p>
+                    <p class="profile__about"></p>
                 </div>
             </div>
             <button class="profile__add-button" type="button"></button>
@@ -43,8 +43,8 @@
             <form class="popup__form popup__form_type_edit" name="person" novalidate>
                 <input type="text" class="popup__input popup__input_type_name" id="name-input" name="name" minlength="2" maxlength="40" required>
                 <span class="popup__input-error name-input-error"></span>
-                <input type="text" class="popup__input popup__input_type_post" id="post-input" name="post" minlength="2" maxlength="200" required>
-                <span class="popup__input-error post-input-error"></span>
+                <input type="text" class="popup__input popup__input_type_about" id="about-input" name="about" minlength="2" maxlength="200" required>
+                <span class="popup__input-error about-input-error"></span>
                 <button class="popup__button">Сохранить</button>
             </form>
         </div>
@@ -68,7 +68,9 @@
         <div class="popup__content popup__content_type_delete">
             <button class="popup__close" type="button"></button>
             <h3 class="popup__title popup__title_type_delete">Вы уверены?</h3>
-            <button class="popup__button popup__button_active">Да</button>
+            <form class="popup__form popup__form_type_delete" name="delete" novalidate>
+                <button class="popup__button popup__button_active">Да</button>
+            </form>
         </div>
     </div>
 
@@ -76,7 +78,7 @@
         <div class="popup__content popup__content_type_avatar">
             <button class="popup__close" type="button"></button>
             <h3 class="popup__title popup__title_type_avatar">Обновить аватар</h3>
-            <form class="popup__form popup__form_type_add" name="card" novalidate>
+            <form class="popup__form popup__form_type_avatar" name="card" novalidate>
                 <input type="url" class="popup__input popup__input_type_avatar" id="avatar-input" name="avatar" placeholder="Ссылка на картинку" required>
                 <span class="popup__input-error avatar-input-error"></span>
                 <button class="popup__button">Сохранить</button>

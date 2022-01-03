@@ -3,8 +3,9 @@
     height: 120px;
     border-radius: 60px;
     position: relative;
-    background-image: url('../../../images/avatar.jpg');
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .profile__avatar::after {
