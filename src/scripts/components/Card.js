@@ -1,5 +1,5 @@
 class Card {
-    constructor(cardConfig, item, handleCardClick, openDeletePopup) {
+    constructor(cardConfig, item, handleCardClick, {handleDeleteButtonClick, handleLikeClick}) {
         this._item = item;
         this._config = cardConfig;
         this._template = document.querySelector(this._config.templateElementSelector).content;
@@ -8,8 +8,18 @@ class Card {
         this._title = this._element.querySelector(this._config.titleSelector);
         this._button = this._element.querySelector(this._config.deleteSelector);
         this._likeButton = this._element.querySelector(this._config.likeSelector);
+        this._counter = this._element.querySelector(this._config.counterSelector);
         this._handleCardClick = handleCardClick;
-        this._openDeletePopup = openDeletePopup;
+        this._handleDeleteButtonClick = handleDeleteButtonClick;
+        this._handleLikeClick = handleLikeClick;
+    }
+
+    deleteButton() {
+        this._button.remove();
+    }
+
+    setCounter(data) {
+        this._counter.textContent = data.likes.length;
     }
 
     _addListeners() {
@@ -19,16 +29,18 @@ class Card {
             }
         });
         this._button.addEventListener('click', () => {
-            this._openDeletePopup();
+            this._handleDeleteButtonClick();
         })
-        this._likeButton.addEventListener('click', () => this._like());
+        this._likeButton.addEventListener('click', () => {
+            this._handleLikeClick();
+        });
     }
 
-    _like() {
+    like() {
         this._likeButton.classList.toggle(this._config.likeActiveClass);
     }
 
-    removeElement() {
+    removeCard() {
         this._element.remove();
     }
 

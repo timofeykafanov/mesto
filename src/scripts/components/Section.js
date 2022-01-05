@@ -5,7 +5,7 @@ class Section {
     }
 
     addItem(item) {
-        this._section.prepend(item);
+        this._section.append(item);
     }
 
     renderItems(items) {

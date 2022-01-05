@@ -6,5 +6,6 @@ export const cardConfig = {
     deleteSelector: '.element__delete',
     likeSelector: '.element__like', 
     likeActiveClass: 'element__like_active',
-    imageClass: 'element__image'
+    imageClass: 'element__image',
+    counterSelector: '.element__counter'
 }
