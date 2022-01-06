@@ -9,5 +9,6 @@
         font-size: 14px;
         line-height: 1.21;
         margin: 0 auto;
+        max-width: 200px;
     }
 }

@@ -4,6 +4,14 @@ class Api {
         this._token = token;
     }
 
+    _checkResult(res) {
+        if (res.ok) {
+            return res.json();
+        } else {
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
+    }
+
     getInitialCards() {
         return fetch(`${this._adress}/cards`, {
             headers: {

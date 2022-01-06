@@ -1,4 +1,4 @@
-import './index.css';
+
 
 import { cardConfig } from '../scripts/constants/cardConfig.js';
 import { popupConfig } from '../scripts/constants/popupConfig.js';
@@ -50,67 +50,70 @@ const userNameSelector = userConfig.userNameSelector;
 const userAboutSelector = userConfig.userAboutSelector;
 const userAvatarSelector = userConfig.userAvatarSelector;
 
+function createCard(item) {
+    const card = new Card(cardConfig, item, handleCardClick, {
+        handleDeleteButtonClick: () => {
+            const popupWithDeleteForm = new PopupWithForm({
+                popupSelector: '.popup_type_delete', 
+                handleFormSubmit: () => {
+                    api.deleteCard(item)
+                        .catch(err => {
+                            console.log(`Ошибка: ${err}`);
+                        })
+                        .finally(() => {
+                            popupWithDeleteForm.renderLoading(false);
+                        })
+                    card.removeCard();
+                },
+                renderLoading: (isLoading) => {
+                    if (isLoading) {
+                        deleteForm.querySelector('.popup__button').textContent = 'Удаление...';
+                    } else if (!isLoading) {
+                        deleteForm.querySelector('.popup__button').textContent = 'Да';
+                    }
+                } 
+            });
+            popupWithDeleteForm.open();
+            popupWithDeleteForm.setEventListeners();
+        },
+        handleLikeClick: () => {
+            card.like();
+            if (item.likes.some(like => like._id === userId)) {
+                api.deleteLike(item)
+                    .then(data => {
+                        card.setCounter(data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            } else {
+                api.putLike(item)
+                    .then(data => {
+                        card.setCounter(data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+            card.setCounter(item);
+        }
+    })
+    section.addItem(card.renderCard());
+
+    if (item.owner._id === userId) {} else {
+        card.deleteButton();
+    }
+
+    if (item.likes.some(like => like._id === userId)) {
+        card.like();
+    }
+
+    card.setCounter(item);
+}
+
 const section = new Section({
     renderer: (item) => {
-        const card = new Card(cardConfig, item, handleCardClick, {
-            handleDeleteButtonClick: () => {
-                const popupWithDeleteForm = new PopupWithForm({
-                    popupSelector: '.popup_type_delete', 
-                    handleFormSubmit: () => {
-                        api.deleteCard(item)
-                            .catch(err => {
-                                console.log(`Ошибка: ${err}`);
-                            })
-                            .finally(() => {
-                                popupWithDeleteForm.renderLoading(false);
-                            })
-                        card.removeCard();
-                    },
-                    renderLoading: (isLoading) => {
-                        if (isLoading) {
-                            deleteForm.querySelector('.popup__button').textContent = 'Удаление...';
-                        } else if (!isLoading) {
-                            deleteForm.querySelector('.popup__button').textContent = 'Да';
-                        }
-                    } 
-                });
-                popupWithDeleteForm.open();
-                popupWithDeleteForm.setEventListeners();
-            },
-            handleLikeClick: () => {
-                card.like();
-                if (item.likes.some(like => like._id === userId)) {
-                    api.deleteLike(item)
-                        .then(data => {
-                            card.setCounter(data);
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        })
-                } else {
-                    api.putLike(item)
-                        .then(data => {
-                            card.setCounter(data);
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        })
-                }
-                card.setCounter(item);
-            }
-        });
-        
-        section.addItem(card.renderCard());
-
-        if (item.owner._id === userId) {} else {
-            card.deleteButton();
-        }
-
-        if (item.likes.some(like => like._id === userId)) {
-            card.like();
-        }
-
-        card.setCounter(item);
+        createCard(item);
     }
 }, popupConfig.elementListSelector);
 
