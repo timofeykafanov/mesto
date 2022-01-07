@@ -1,5 +1,5 @@
 class Card {
-    constructor(cardConfig, item, handleCardClick, {handleDeleteButtonClick, handleLikeClick}) {
+    constructor(cardConfig, item, handleCardClick, {handleDeleteButtonClick, putLike, deleteLike}) {
         this._item = item;
         this._config = cardConfig;
         this._template = document.querySelector(this._config.templateElementSelector).content;
@@ -11,7 +11,8 @@ class Card {
         this._counter = this._element.querySelector(this._config.counterSelector);
         this._handleCardClick = handleCardClick;
         this._handleDeleteButtonClick = handleDeleteButtonClick;
-        this._handleLikeClick = handleLikeClick;
+        this._putLike = putLike;
+        this._deleteLike = deleteLike;
     }
 
     deleteButton() {
@@ -32,7 +33,11 @@ class Card {
             this._handleDeleteButtonClick(this);
         })
         this._likeButton.addEventListener('click', () => {
-            this._handleLikeClick(this._item);
+            if (this._likeButton.classList.contains(this._config.likeActiveClass)) {
+                this._deleteLike();
+            } else {
+                this._putLike();
+            }
         });
     }
 

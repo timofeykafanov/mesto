@@ -84,26 +84,25 @@ function createCard(item) {
                 })
             })
         },
-        handleLikeClick: (item) => {
-            if (item.likes.some(like => like._id === userId)) {
-                api.deleteLike(item)
-                .then(data => {
-                    card.like();
-                    card.setCounter(data);
+        putLike: () => {
+            api.putLike(item)
+            .then(data => {
+                card.like();
+                card.setCounter(data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+        deleteLike: () => {
+            api.deleteLike(item)
+            .then(data => {
+                card.like();
+                card.setCounter(data);
                 })
-                .catch(err => {
-                    console.log(err);
-                })
-            } else {
-                api.putLike(item)
-                .then(data => {
-                    card.like();
-                    card.setCounter(data);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-            }
+            .catch(err => {
+                console.log(err);
+            })
         }
     })
 
