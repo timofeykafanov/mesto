@@ -40,13 +40,18 @@ class FormValidator {
         this._errorElement.textContent = '';
     }
 
-    _disableButton() {
+    disableButton() {
         this._buttonElement.classList.remove(this._config.buttonActive);
         this._buttonElement.setAttribute('disabled', '');
     }
 
+    enableButton() {
+        this._buttonElement.classList.add(this._config.buttonActive);
+        this._buttonElement.removeAttribute('disabled',);
+    }
+
     resetValidation() {
-        this._disableButton();
+        this.disableButton();
 
         this._inputList.forEach((inputElement) => {
             inputElement.value = '';

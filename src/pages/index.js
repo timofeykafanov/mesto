@@ -132,13 +132,14 @@ const popupWithAddForm = new PopupWithForm({
             const card = createCard(res);
 
             section.prependItem(card.renderCard());
+
+            popupWithAddForm.close();
         })
         .catch(err => {
             console.log(`Ошибка: ${err}`);
         })
         .finally(() => {
             popupWithAddForm.renderLoading(false);
-            popupWithAddForm.close();
         }) 
         .catch(err => {
             console.log(err);
@@ -153,10 +154,10 @@ const popupWithEditForm = new PopupWithForm({
         api.setUserInfo(inputValues)
         .catch(err => {
             console.log(err);
+            popupWithEditForm.close();
         })
         .finally(() => {
             popupWithEditForm.renderLoading(false);
-            popupWithEditForm.close();
         })
     }
 });
@@ -166,12 +167,14 @@ const popupWithAvatarForm = new PopupWithForm({
     handleFormSubmit: (inputValue) => {
         userInfo.setUserAvatar(inputValue);
         api.setUserAvatar(inputValue)
+        .then(() => {
+            popupWithAvatarForm.close();
+        })
         .catch(err => {
             console.log(err);
         })
         .finally(() => {
             popupWithAvatarForm.renderLoading(false);
-            popupWithAvatarForm.close();
         })
     }
 });
@@ -179,7 +182,7 @@ const popupWithAvatarForm = new PopupWithForm({
 editButton.addEventListener('click', ()=> {
     editFormValidator.resetValidation();
     setUserInfo(userInfo.getUserInfo());
-    editFormValidator._toggleButtonState();
+    editFormValidator.enableButton();
     popupWithEditForm.open();
 });
 
