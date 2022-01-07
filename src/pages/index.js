@@ -1,4 +1,4 @@
-import './index.css';
+
 
 import { cardConfig } from '../scripts/constants/cardConfig.js';
 import { popupConfig } from '../scripts/constants/popupConfig.js';
@@ -152,9 +152,11 @@ const popupWithEditForm = new PopupWithForm({
     handleFormSubmit: (inputValues) => {
         userInfo.setUserInfo(inputValues)
         api.setUserInfo(inputValues)
+        .then(() => {
+            popupWithEditForm.close();
+        })
         .catch(err => {
             console.log(err);
-            popupWithEditForm.close();
         })
         .finally(() => {
             popupWithEditForm.renderLoading(false);
@@ -181,17 +183,19 @@ const popupWithAvatarForm = new PopupWithForm({
 
 editButton.addEventListener('click', ()=> {
     editFormValidator.resetValidation();
-    setUserInfo(userInfo.getUserInfo());
     editFormValidator.enableButton();
+    setUserInfo(userInfo.getUserInfo());
     popupWithEditForm.open();
 });
 
 addButton.addEventListener('click', ()=> {
+    addFormValidator.disableButton();
     addFormValidator.resetValidation();
     popupWithAddForm.open();
 });
 
 avatarButton.addEventListener('click', () => {
+    avatarFormValidator.disableButton();
     avatarFormValidator.resetValidation();
     popupWithAvatarForm.open();
 })
