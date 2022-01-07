@@ -32,7 +32,7 @@ class Card {
             this._handleDeleteButtonClick();
         })
         this._likeButton.addEventListener('click', () => {
-            this._handleLikeClick();
+            this._handleLikeClick(this._item);
         });
     }
 

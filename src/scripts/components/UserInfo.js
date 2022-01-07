@@ -12,6 +12,11 @@ class UserInfo {
         };
     }
 
+    getUserId(data) {
+        const userId = data._id;
+        return userId;
+    }
+
     setUserInfo({name, about}) {
         this._userName.textContent = name;
         this._userAbout.textContent = about;

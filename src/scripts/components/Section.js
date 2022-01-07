@@ -4,7 +4,11 @@ class Section {
         this._renderer = renderer;
     }
 
-    addItem(item) {
+    prependItem(item) {
+        this._section.prepend(item);
+    }
+
+    appendItem(item) {
         this._section.append(item);
     }
 

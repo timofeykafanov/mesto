@@ -27,6 +27,5 @@ export const popupConfig = {
     deletePopupSelector: '.popup_type_delete',
     avatarPopupSelector: '.popup_type_avatar',
     avatarButtonSelector: '.profile__avatar',
-    avatarFormSelector: '.popup__form_type_avatar',
-    deleteFormSelector: '.popup__form_type_delete'
+    avatarFormSelector: '.popup__form_type_avatar'
 }

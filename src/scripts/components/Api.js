@@ -18,13 +18,13 @@ class Api {
                 authorization: this._token
             }
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                return Promise.reject(`Ошибка: ${res.status}`);
+            }
+        })
     }
 
     getUserInfo() {
@@ -33,13 +33,13 @@ class Api {
                 authorization: this._token
             }
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                return Promise.reject(`Ошибка: ${res.status}`);
+            }
+        })
     }
 
     setUserInfo(inputValues) {
@@ -54,13 +54,13 @@ class Api {
                 about: inputValues.about
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                return Promise.reject(`Ошибка: ${res.status}`);
+            }
+        })
     }
 
     setUserAvatar(inputValue) {
@@ -74,13 +74,13 @@ class Api {
                 avatar: inputValue.avatar
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                return Promise.reject(`Ошибка: ${res.status}`);
+            }
+        })
     }
 
     setCard(inputValues) {
@@ -95,13 +95,13 @@ class Api {
                 link: inputValues.link
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                return Promise.reject(`Ошибка: ${res.status}`);
+            }
+        })
     }
 
     putLike(item) {
