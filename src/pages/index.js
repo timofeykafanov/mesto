@@ -1,4 +1,4 @@
-
+import './index.css';
 
 import { cardConfig } from '../scripts/constants/cardConfig.js';
 import { popupConfig } from '../scripts/constants/popupConfig.js';
