@@ -12,15 +12,13 @@ class DeletePopup extends Popup {
     }
 
     setHandler(action) {
-        this._handleSubmitCallBack = action;
+        this._handleClickCallBack = action;
     }
 
     setEventListeners() {
         super.setEventListeners();
 
-        this._button.addEventListener('click', () => {
-            this._handleSubmitCallBack();
-        })
+        this._button.addEventListener('click', () => this._handleClickCallBack())
     }
 }
 

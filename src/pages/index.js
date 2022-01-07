@@ -1,4 +1,4 @@
-
+import './index.css';
 
 import { cardConfig } from '../scripts/constants/cardConfig.js';
 import { popupConfig } from '../scripts/constants/popupConfig.js';
@@ -75,7 +75,7 @@ function createCard(item) {
             deletePopup.open();
             deletePopup.setHandler(() => {
                 api.deleteCard(item)
-                .then(res => {
+                .then(() => {
                     card.removeCard();
                     deletePopup.close();
                 })

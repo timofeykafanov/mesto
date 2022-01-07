@@ -29,7 +29,7 @@ class Card {
             }
         });
         this._button.addEventListener('click', () => {
-            this._handleDeleteButtonClick();
+            this._handleDeleteButtonClick(this);
         })
         this._likeButton.addEventListener('click', () => {
             this._handleLikeClick(this._item);
@@ -41,6 +41,7 @@ class Card {
     }
 
     removeCard() {
+        this._element.remove();
         this._element = null;
     }
 
