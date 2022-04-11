@@ -1,21 +1,16 @@
-# Проект: Место
+# Mesto
 
-[Ссылка на проект](https://timofeykafanov.github.io/mesto/)
+[Link to the project](https://timofeykafanov.github.io/mesto/)
 
 ------
 
-Сайт с возможностью редактировния профиля и добавления новых карточек, возможностью лайкать места и открывать фотографии.
+The site is written in pure JavaScript with functionality similar to Instagram.
+The user can add/remove a card,
+put/remove a like, change profile data.
 
-Технологии, использованные в проекте:
-* Валидация форм через JavaScript
-* Функции
-* Слушатели событий
-* Адаптивная верстка
-* Флексбокс-верстка
-* Гриды
-* Резиновая верстка (относительные величины)
-* Позиционирование элементов
-* Трансформации
-
-В планах написать Бэк-енд.
-
+## Stack
+* HTML
+* CSS
+* JavaScript
+* Webpack
+* API
